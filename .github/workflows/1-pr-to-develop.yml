@@ -7,7 +7,7 @@ on:
       
 jobs:
   open-pr-to-develop:
-    uses: heliomarpm/gha_reusable/.github/workflows/create_pr.yml@v1
+    uses: heliomarpm/gha_reusable/.github/workflows/create_pr.yml
     with:
       target-branch: 'develop'
     secrets: inherit
