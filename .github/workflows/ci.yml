@@ -12,3 +12,4 @@ jobs:
     with:
       node_version: '20.x' 
       test_command: 'npm test -- --coverage'
+      
