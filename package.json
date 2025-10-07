@@ -1,0 +1,28 @@
+{
+  "name": "gh-test-automations",
+  "version": "0.0.1",
+  "description": "teste ci-reusable",
+  "main": "index.js",
+  "type": "commonjs",
+  "license": "ISC",
+  "author": "Heliomar P. Marques",
+  "homepage": "https://github.com/heliomarpm/gh-test-automations#readme",
+  "bugs": {
+    "url": "https://github.com/heliomarpm/gh-test-automations/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heliomarpm/gh-test-automations.git"
+  },
+  "keywords": [
+    "ci-cd",
+    "template"
+  ],
+  "scripts": {
+    "test": "jest --coverage --json --outputFile=coverage/coverage-summary.json",
+    "build": "echo 'Build successful'"
+  },
+   "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
