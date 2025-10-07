@@ -8,7 +8,7 @@ on:
 jobs:
   run_tests:
     name: Executar Testes com Template
-    uses: heliomarpm/ci-reusable/.github/workflows/node/test.yml@main
+    uses: heliomarpm/ci-reusable/.github/workflows/node-test.yml@main
     with:
       node_version: '20.x' 
       test_command: 'npm test -- --coverage'
