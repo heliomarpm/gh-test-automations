@@ -21,8 +21,8 @@ jobs:
     with:
       head_branch: 'develop'
       base_branch: 'main'             
-    secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # secrets:
+    #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # release:    
   #   name: 💥 Gerar Release e Tag
