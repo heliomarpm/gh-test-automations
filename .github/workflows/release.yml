@@ -19,6 +19,7 @@ jobs:
     with:
       branch_to_watch: 'main'
       simulate_release: false
+      
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
