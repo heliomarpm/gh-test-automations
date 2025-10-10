@@ -1,4 +1,4 @@
-name: Teste CI/CD Integrado
+name: CI Workflow
 
 on:
   workflow_dispatch:
@@ -11,12 +11,39 @@ jobs:
     uses: heliomarpm/ci-reusable/.github/workflows/node-test.yml@main
     with:
       node_version: '20.x' 
+      # test_command: 'npm test -- --coverage'
 
   create_pr:
     needs: run_tests
     if: success() && github.ref == 'refs/heads/develop'    
     name: 🤖 Criar/Atualizar Pull Request (develop -> main)
-    uses: heliomarpm/ci-resuable/.github/workflows/node-pr.yml@main
+    uses: heliomarpm/ci-reusable/.github/workflows/node-pr.yml@main
     with:
       head_branch: 'develop'
       base_branch: 'main'             
+    secrets:
+     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # release:    
+  #   name: 💥 Gerar Release e Tag
+  #   uses: heliomarpm/ci-reusable/.github/workflows/node-release.yml@main
+  #   with:
+  #     branch_to_watch: 'main'
+  #     simulate_release: false
+  #   secrets:
+  #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
+
+  # publish:
+  #   name: Publicar no NPM
+  #   needs: release
+  #   # Só publica se o release for bem-sucedido (tag criada)
+  #   if: success()
+  #   name: 🚀 Publicar no NPM
+  #   uses: heliomarpm/ci-reusable/.github/workflows/node-publish.yml@main
+  #   with:
+  #     node_version: '20.x'
+  #     publish_command: 'npm publish'
+  #     simulate_publish: true
+  #   secrets:
+  #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

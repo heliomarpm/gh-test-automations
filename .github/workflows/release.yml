@@ -2,24 +2,30 @@
 name: Release e Publicação Semântica
 
 on:
-  push:
-    branches: [ main ] # Dispara após o merge em main
-  workflow_dispatch:
+  # workflow_dispatch:
+  # push:
+  #   branches: [ main ] # Dispara após o merge em main
+
+  workflow_run:
+    workflows: ["CI Workflow"]
+    branches: [main]
+    types:
+      - completed
 
 jobs:
-  release:
-    name: Gerar Release e Tag
+  release:    
+    name: 💥 Gerar Release e Tag
     uses: heliomarpm/ci-reusable/.github/workflows/node-release.yml@main
     with:
       branch_to_watch: 'main'
       simulate_release: false
     secrets:
-      # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
 
   publish:
-    name: Publicar no NPM
     needs: release
+    name: 🚀 Publicar no NPM
     # Só publica se o release for bem-sucedido (tag criada)
     if: success()
     uses: heliomarpm/ci-reusable/.github/workflows/node-publish.yml@main
