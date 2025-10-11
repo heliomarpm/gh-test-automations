@@ -5,11 +5,6 @@ on:
   push:
     branches: [develop, main, master]
 
-permissions:
-  contents: write       # Necessário para operações gerais de escrita (embora o PR use o API, é bom para a Action)
-  pull-requests: write  # ESSENCIAL: Concede permissão para criar e manipular Pull Requests.
-  actions: write
-
 jobs:
   run_tests:
     name: 🧪 Executar Testes com Template
@@ -23,12 +18,18 @@ jobs:
     # needs: run_tests
     if: success() && github.ref == 'refs/heads/develop'    
     name: 🤖 Criar/Atualizar Pull Request (develop -> main)
+    permissions:
+      contents: write       # Necessário para operações gerais de escrita (embora o PR use o API, é bom para a Action)
+      pull-requests: write  # ESSENCIAL: Concede permissão para criar e manipular Pull Requests.
+      actions: write
+
     uses: heliomarpm/ci-reusable/.github/workflows/node-pr.yml@main
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
     with:
       head_branch: 'develop'
       base_branch: 'main'             
-    # secrets:
-    #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # release:    
   #   name: 💥 Gerar Release e Tag
