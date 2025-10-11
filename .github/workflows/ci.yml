@@ -3,27 +3,35 @@ name: CI Workflow
 on:
   workflow_dispatch:
   push:
-    branches: [develop, main]
+    branches: [develop, main, master]
 
 jobs:
   run_tests:
     name: 🧪 Executar Testes com Template
     uses: heliomarpm/ci-reusable/.github/workflows/node-test.yml@main
     with:
-      node_version: '20.x' 
+      node_version: '20.x'
+      skip_tests: false
       # test_command: 'npm test -- --coverage'
 
   create_pr:
-    needs: run_tests
+    # needs: run_tests
     if: success() && github.ref == 'refs/heads/develop'    
     name: 🤖 Criar/Atualizar Pull Request (develop -> main)
+    permissions:
+      contents: write       # Necessário para operações gerais de escrita (embora o PR use o API, é bom para a Action)
+      pull-requests: write  # ESSENCIAL: Concede permissão para criar e manipular Pull Requests.
+      actions: write
+
     uses: heliomarpm/ci-reusable/.github/workflows/node-pr.yml@main
     with:
-      head_branch: 'develop'
-      base_branch: 'main'             
-    # secrets:
-    #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      head_branch: ${{ github.ref_name }} # 'develop'
+      base_branch: 'main'
+      # pr_title: "🔀 develop → main: $(date +'%Y-%m-%d')"
 
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
   # release:    
   #   name: 💥 Gerar Release e Tag
   #   uses: heliomarpm/ci-reusable/.github/workflows/node-release.yml@main
