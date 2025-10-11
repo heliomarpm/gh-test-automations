@@ -25,8 +25,8 @@ jobs:
 
     uses: heliomarpm/ci-reusable/.github/workflows/node-pr.yml@main
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
+      PR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     with:
       head_branch: 'develop'
       base_branch: 'main'             
