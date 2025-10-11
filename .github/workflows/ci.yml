@@ -24,13 +24,12 @@ jobs:
       actions: write
 
     uses: heliomarpm/ci-reusable/.github/workflows/node-pr.yml@main
-    secrets:
-      PR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     with:
       head_branch: 'develop'
       base_branch: 'main'             
-
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
   # release:    
   #   name: 💥 Gerar Release e Tag
   #   uses: heliomarpm/ci-reusable/.github/workflows/node-release.yml@main
