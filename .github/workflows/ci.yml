@@ -3,7 +3,7 @@ name: CI Workflow
 on:
   workflow_dispatch:
   push:
-    branches: [develop, main]
+    branches: [develop, main, master]
 
 jobs:
   run_tests:
