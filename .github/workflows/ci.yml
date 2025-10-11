@@ -21,7 +21,7 @@ jobs:
     permissions:
       contents: write       # Necessário para operações gerais de escrita (embora o PR use o API, é bom para a Action)
       pull-requests: write  # ESSENCIAL: Concede permissão para criar e manipular Pull Requests.
-      
+      actions: write
 
     uses: heliomarpm/ci-reusable/.github/workflows/node-pr.yml@main
     with:
