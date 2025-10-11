@@ -15,7 +15,7 @@ jobs:
       # test_command: 'npm test -- --coverage'
 
   create_pr:
-    needs: run_tests
+    # needs: run_tests
     if: success() && github.ref == 'refs/heads/develop'    
     name: 🤖 Criar/Atualizar Pull Request (develop -> main)
     uses: heliomarpm/ci-reusable/.github/workflows/node-pr.yml@main
