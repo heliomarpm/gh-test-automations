@@ -2,7 +2,7 @@
 name: Release e Publicação Semântica
 
 on:
-  # workflow_dispatch:
+  workflow_dispatch:
   # push:
   #   branches: [ main ] # Dispara após o merge em main
 
