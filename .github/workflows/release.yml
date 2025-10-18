@@ -2,7 +2,7 @@
 name: Release e Publicação Semântica
 
 on:
-  # workflow_dispatch:
+  workflow_dispatch:
   # push:
   #   branches: [ main ] # Dispara após o merge em main
 
@@ -19,9 +19,11 @@ jobs:
     with:
       branch_to_watch: 'main'
       simulate_release: false
+
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
+
 
   publish:
     needs: release
@@ -33,5 +35,5 @@ jobs:
       node_version: '20.x'
       publish_command: 'npm publish'
       simulate_publish: true
-    # secrets:
-    #   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
