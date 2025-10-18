@@ -6,9 +6,6 @@
  * @returns {number}
  */
 function sum(a, b) {
-  if (a < 0) {
-    return 0; // Exemplo de branch não coberto
-  }
   return a + b;
 }
 

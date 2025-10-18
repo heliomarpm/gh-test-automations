@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "teste ci-reusable",
   "main": "index.js",
-  "type": "commonjs",
   "license": "ISC",
   "author": "Heliomar P. Marques",
   "homepage": "https://github.com/heliomarpm/gh-test-automations#readme",
@@ -19,10 +18,14 @@
     "template"
   ],
   "scripts": {
-    "test": "jest --coverage --json --outputFile=coverage/coverage-summary.json",
+    "test": "jest",
+    "test:c": "jest --coverage --outputFile=coverage/coverage-summary.json",
     "build": "echo 'Build successful'"
   },
    "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
