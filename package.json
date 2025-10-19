@@ -17,6 +17,25 @@
     "ci-cd",
     "template"
   ],
+  "funding": [
+    {
+      "type": "github sponsors",
+      "url": "https://github.com/sponsors/heliomarpm"
+    },
+    {
+      "type": "lierapay",
+      "url": "https://liberapay.com/heliomarpm"
+    },
+    {
+      "type": "ko-fi",
+      "url": "https://ko-fi.com/heliomarpm"
+    },
+    {
+      "type": "paypal",
+      "url": "https://bit.ly/paypal-sponsor-heliomarpm"
+    },
+    "https://www.paypal.com/donate?business=KBVHLR7Z9V7B2&no_recurring=0&currency_code=BRL"
+  ],
   "scripts": {
     "test": "jest",
     "test:c": "jest --coverage --outputFile=coverage/coverage-summary.json",
@@ -26,6 +45,6 @@
     "jest": "^29.7.0"
   },
   "engines": {
-    "node": "20.x"
-  }
+    "node": ">=20"
+  }  
 }

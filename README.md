@@ -1,6 +1,6 @@
 # gh-test-automations
 
-testando ci-reusable
+Testando ci-reusable
 
 ```mermaid
 graph TD
