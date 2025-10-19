@@ -27,6 +27,7 @@ jobs:
     with:
       head_branch: ${{ github.ref_name }} # 'develop'
       base_branch: 'main'
+      min_coverage_pct: 80      
       # pr_title: "🔀 develop → main: $(date +'%Y-%m-%d')"
 
     secrets:
