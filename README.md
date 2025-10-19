@@ -1,5 +1,7 @@
 # gh-test-automations
 
+testando ci-reusable
+
 ```mermaid
 graph TD
     A[🚀 Commit na develop] --> B[✅ test]
