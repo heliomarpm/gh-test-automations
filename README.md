@@ -4,15 +4,13 @@ testando ci-reusable
 
 ```mermaid
 graph TD
-    A[🚀 Commit na develop] --> B[✅ test]
-    B -->|Sucesso| C[📝 create-pr]
-    C --> D[🔄 PR Auto criada/atualizada]
+    A[🚀 Commit in develop] --> B[✅ test]
+    B -->|Success| C[📝 create-pr]
+    C --> D[🔄 PR Auto create/update]
     D --> E[👥 Review & Merge]
-    E --> F[✅ test na main]
-    F -->|Sucesso| G[📚 deploy-docs]
-    F -->|Sucesso| H[🏷️ release]
-    H --> I[📦 publish-npm]
+    E --> F[✅ test in main]
+    F -->|Success| G[📚 deploy-docs]
+    F -->|Success| H[🏷️ release]
+    H --> I[📦 publish-npm or/and github packages]
 
 ```
-
-
