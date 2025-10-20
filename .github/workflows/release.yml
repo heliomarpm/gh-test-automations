@@ -13,17 +13,16 @@ on:
       - completed
 
 jobs:
-  release:    
+  release:
     name: 💥 Gerar Release e Tag
     uses: heliomarpm/ci-reusable/.github/workflows/node-release.yml@main
     with:
-      branch_to_watch: 'main'
+      branch_to_watch: "main"
       simulate_release: false
 
     secrets:
-      # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
-
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish:
     needs: release
@@ -32,8 +31,8 @@ jobs:
     if: success()
     uses: heliomarpm/ci-reusable/.github/workflows/node-publish.yml@main
     with:
-      node_version: '20.x'
-      publish_command: 'npm publish'
+      node_version: "20.x"
+      publish_command: "npm publish"
       simulate_publish: true
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

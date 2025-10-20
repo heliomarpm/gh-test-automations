@@ -1,16 +1,17 @@
 # gh-test-automations
 
+Testando ci-reusable
+
+
 ```mermaid
 graph TD
-    A[🚀 Commit na develop] --> B[✅ 0.test.yml]
-    B -->|Sucesso| C[📝 1.create-pr.yml]
-    C --> D[🔄 PR Auto criada/atualizada]
-    D --> E[👥 Review & Merge]
-    E --> F[✅ 0.test.yml na main]
-    F -->|Sucesso| G[📚 2.deploy-docs.yml]
-    F -->|Sucesso| H[🏷️ 3.release.yml]
-    H --> I[📦 4.publish-npm.yml]
+    A(🚀 Commit in develop) --> B(🧪 Run test)
+    B --> |Success| C(🔄 Run create/update-pr)
+    C --> D[👥 Review & Merge]
+    D --> E(🧪 Run test in main)
+    E --> |Success| F(📚 Run deploy-docs)
+    E --> |Success| G(🏷️ Run release)
+    G --> |Success| H(📦 Run publish)
 
 ```
-
 
