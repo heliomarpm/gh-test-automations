@@ -15,11 +15,14 @@ on:
 jobs:
   release:
     name: 💥 Gerar Release e Tag
+    permissions:
+      contents: write
+      actions: write
+
     uses: heliomarpm/ci-reusable/.github/workflows/node-release.yml@main
     with:
       branch_to_watch: "main"
       simulate_release: false
-
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
