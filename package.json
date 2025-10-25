@@ -1,5 +1,5 @@
 {
-  "name": "gh-test-automations",
+  "name": "test-ci-reusable",
   "version": "0.0.1",
   "description": "teste ci-reusable",
   "main": "dist/index.js",
