@@ -1,6 +1,6 @@
 # gh-test-automations
 
-Testando ci-reusable
+Testando ci-reusable...
 
 - [x] testar via ci-reusable
 - [x] criar pull request via ci-reusable
