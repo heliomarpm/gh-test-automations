@@ -53,8 +53,8 @@ module.exports = {
     
     // Cria uma release no GitHub com changelog e artefatos
     ["@semantic-release/github", {
-      successComment: true, 
-      failComment: true,
+      successComment: "false", 
+      failComment: "true",
       assets: [
         { path: "dist/**", label: "Build" },
         { path: "coverage/**", label: "Coverage Report" },
