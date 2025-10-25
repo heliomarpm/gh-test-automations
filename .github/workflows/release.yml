@@ -1,5 +1,5 @@
 # .github/workflows/release.yml no repositório consumidor
-name: Release e Publicação Semântica
+name: "2: Release & Publish"
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
   #   branches: [ main ] # Dispara após o merge em main
 
   workflow_run:
-    workflows: ["CI Workflow"]
+    workflows: ["1: Test & PR Automation"]
     branches: [main]
     types:
       - completed
@@ -36,7 +36,6 @@ jobs:
     if: success()
     uses: heliomarpm/ci-reusable/.github/workflows/node-publish.yml@main
     with:
-      node_version: "20.x"
       simulate_publish: true
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
