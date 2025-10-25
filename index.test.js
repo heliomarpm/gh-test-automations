@@ -13,4 +13,7 @@ describe('Math Operations', () => {
     expect(multiply(3, 4)).toBe(12);
   });
   
+  test('multiply() should correctly multiply two negative numbers', () => {
+    expect(multiply(-3, -4)).toBe(12);
+  });
 });
