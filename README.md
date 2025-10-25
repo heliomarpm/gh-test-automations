@@ -9,6 +9,7 @@ Testando ci-reusable
 - [ ] release ainda não funciona....
 - [ ] implementar publish
 - [ ] implementar deploy-docs
+- [ ] bloquear merge se o coverage for menor que % minimo definido
 
 ```mermaid
 graph TD
