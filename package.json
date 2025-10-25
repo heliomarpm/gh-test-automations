@@ -2,7 +2,8 @@
   "name": "gh-test-automations",
   "version": "0.0.1",
   "description": "teste ci-reusable",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "ISC",
   "author": "Heliomar P. Marques",
   "homepage": "https://github.com/heliomarpm/gh-test-automations#readme",
@@ -37,14 +38,16 @@
     "https://www.paypal.com/donate?business=KBVHLR7Z9V7B2&no_recurring=0&currency_code=BRL"
   ],
   "scripts": {
-    "test": "jest",
-    "test:c": "jest --coverage --outputFile=coverage/coverage-summary.json",
-    "build": "echo 'Build successful'"
+    "test": "vitest --no-watch --reporter=verbose",
+    "test:c": "vitest --no-watch --coverage",
+    "build": "tsc -p tsconfig.prod.json"
   },
-   "devDependencies": {
-    "jest": "^29.7.0"
+  "devDependencies": {
+    "@vitest/coverage-v8": "^4.0.3",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.3"
   },
   "engines": {
     "node": ">=20"
-  }  
+  }
 }

@@ -12,7 +12,7 @@ jobs:
     with:
       node_version: '20.x'
       skip_tests: false
-      # test_command: 'npm test -- --coverage'
+      test_command: 'npm test -- --coverage'
 
   create_pr:
     # needs: run_tests
