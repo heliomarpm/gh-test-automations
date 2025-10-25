@@ -1,4 +1,4 @@
-name: CI Workflow
+name: "1: Test & PR Automation"
 
 on:
   workflow_dispatch:
@@ -10,7 +10,6 @@ jobs:
     name: 🧪 Executar Testes com Template
     uses: heliomarpm/ci-reusable/.github/workflows/node-test.yml@main
     with:
-      node_version: '20.x'
       skip_tests: false
       test_command: 'npm test -- --coverage'
 
